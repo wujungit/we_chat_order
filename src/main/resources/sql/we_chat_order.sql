@@ -12,7 +12,7 @@ create table `product_category` (
     `create_time` timestamp not null default current_timestamp comment '创建时间',
     `update_time` timestamp not null default current_timestamp on update current_timestamp comment '修改时间',
     primary key (`category_id`)
-)engine=innodb auto_increment=1001 default charset=utf8 comment='类目表';
+)engine=innodb default charset=utf8 comment='类目表';
 
 -- table structure for `product_info`
 drop table if exists `product_info`;
