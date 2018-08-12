@@ -1,6 +1,6 @@
 package com.webank.repository;
 
-import com.webank.entity.ProductCategory;
+import com.webank.entity.ProductInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,27 +9,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
- * 类目Dao测试
+ * 商品Dao测试
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
-public class ProductCategoryRepositoryTest {
+public class ProductInfoRepositoryTest {
     @Autowired
-    private ProductCategoryRepository repository;
+    private ProductInfoRepository repository;
 
     @Test
-    public void findByCategoryTypeIn() {
-//        List<Integer> categoryTypeList = new ArrayList<>();
-//        categoryTypeList.add(1);
-//        categoryTypeList.add(2);
-        List<Integer> categoryTypeList = Arrays.asList(1, 2);
-        List<ProductCategory> result = repository.findByCategoryTypeIn(categoryTypeList);
+    public void findByProductStatus() {
+        Integer productStatus = 0;
+        List<ProductInfo> result = repository.findByProductStatus(productStatus);
         log.info("result:{}", result.toString());
         Assert.assertNotEquals(0, result.size());
     }

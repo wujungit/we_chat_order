@@ -24,9 +24,6 @@ public class ProductCategory {
     private Date createTime;//创建时间
     private Date updateTime;//修改时间
 
-    public ProductCategory() {
-    }
-
     public ProductCategory(String categoryName, Integer categoryType) {
         this.categoryName = categoryName;
         this.categoryType = categoryType;
