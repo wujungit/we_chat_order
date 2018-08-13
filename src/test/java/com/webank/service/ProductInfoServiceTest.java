@@ -43,8 +43,8 @@ public class ProductInfoServiceTest {
 
     @Test
     public void findAll() {
-        Pageable pageable = new PageRequest(0, 2);
-        Page<ProductInfo> result = productInfoService.findAll(pageable);
+        PageRequest pageRequest = PageRequest.of(1, 2);
+        Page<ProductInfo> result = productInfoService.findAll(pageRequest);
         log.info("result:{}", result.getContent().toString());
         Assert.assertNotEquals(0, result.getTotalElements());
     }
