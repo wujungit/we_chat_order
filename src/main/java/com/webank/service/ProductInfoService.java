@@ -12,6 +12,11 @@ import java.util.List;
 public interface ProductInfoService {
     ProductInfo getOne(String productId);
 
+    /**
+     * 查询所有上架的商品
+     *
+     * @return
+     */
     List<ProductInfo> findUpAll();
 
     Page<ProductInfo> findAll(Pageable pageable);
