@@ -21,7 +21,7 @@ public class BuyerProductController {
         productVo.setProductInfoVoList(productInfoVoList);
         List<ProductVo> productVoList = new ArrayList<>();
         productVoList.add(productVo);
-        ResultVo resultVo = new ResultVo();
+        ResultVo<List<ProductVo>> resultVo = new ResultVo<>();
         resultVo.setCode(0);
         resultVo.setMsg("成功");
         resultVo.setData(productVoList);

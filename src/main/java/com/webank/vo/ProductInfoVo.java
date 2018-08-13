@@ -16,7 +16,7 @@ public class ProductInfoVo {
     private String productName;//商品名称
     @JsonProperty("price")
     private BigDecimal productPrice;//单价
-    @JsonProperty("description")
+    @JsonProperty("desc")
     private String productDesc;//描述
     @JsonProperty("icon")
     private String productIcon;//小图

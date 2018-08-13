@@ -2,6 +2,7 @@ package com.webank.service;
 
 import com.webank.entity.ProductCategory;
 import lombok.extern.slf4j.Slf4j;
+import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,8 +27,12 @@ public class ProductCategoryServiceTest {
     public void getOne() {
         Integer categoryId = 1;
         ProductCategory result = productCategoryService.getOne(categoryId);
-        log.info("result:{}", result.toString());
-        Assert.assertEquals(new Integer(1), result.getCategoryId());
+        if (null != result) {
+            log.info("result:{}", result.toString());
+            Assert.assertEquals(new Integer(1), result.getCategoryId());
+        } else {
+            log.info("result返回为空");
+        }
     }
 
     @Test
@@ -39,7 +44,7 @@ public class ProductCategoryServiceTest {
 
     @Test
     public void findByCategoryTypeIn() {
-        List<Integer> categoryTypeList = Arrays.asList(1, 2);
+        List<Integer> categoryTypeList = Arrays.asList(2, 3);
         List<ProductCategory> result = productCategoryService.findByCategoryTypeIn(categoryTypeList);
         log.info("result:{}", result.toString());
         Assert.assertNotEquals(0, result.size());

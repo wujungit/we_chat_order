@@ -15,5 +15,5 @@ public class ProductVo {
     @JsonProperty("type")
     private Integer categoryType;//类目编号
     @JsonProperty("foods")
-    private List<ProductInfoVo> productInfoVoList;
+    private List<ProductInfoVo> productInfoVoList;//商品信息列表
 }

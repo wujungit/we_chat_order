@@ -23,7 +23,7 @@ public class ProductInfoRepositoryTest {
 
     @Test
     public void findByProductStatus() {
-        Integer productStatus = 0;
+        Integer productStatus = 1;
         List<ProductInfo> result = repository.findByProductStatus(productStatus);
         log.info("result:{}", result.toString());
         Assert.assertNotEquals(0, result.size());
