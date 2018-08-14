@@ -1,5 +1,6 @@
 package com.webank.service;
 
+import com.webank.dto.CartDto;
 import com.webank.entity.ProductInfo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,11 +24,21 @@ public interface ProductInfoService {
 
     ProductInfo save(ProductInfo productInfo);
 
-//    void increaseStock(List<CartDTO> cartDTOList);
-//
-//    void decreaseStock(List<CartDTO> cartDTOList);
-//
-//    ProductInfo onSale(String productId);
-//
-//    ProductInfo offSale(String productId);
+    /**
+     * 加库存
+     *
+     * @param cartDtoList
+     */
+    void increaseStock(List<CartDto> cartDtoList);
+
+    /**
+     * 减库存
+     *
+     * @param cartDtoList
+     */
+    void decreaseStock(List<CartDto> cartDtoList);
+
+    ProductInfo onSale(String productId);
+
+    ProductInfo offSale(String productId);
 }
