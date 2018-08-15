@@ -11,14 +11,14 @@ public class ResultVoUtil {
         return resultVo;
     }
 
-    private static ResultVo success() {
+    public static ResultVo success() {
         ResultVo resultVo = new ResultVo();
         resultVo.setCode(0);
         resultVo.setMsg("成功");
         return resultVo;
     }
 
-    private static ResultVo error(Integer code, String msg) {
+    public static ResultVo error(Integer code, String msg) {
         ResultVo resultVo = new ResultVo();
         resultVo.setCode(code);
         resultVo.setMsg(msg);

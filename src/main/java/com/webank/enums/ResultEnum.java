@@ -19,7 +19,8 @@ public enum ResultEnum {
     ORDER_STATUS_UPDATE_FAIL(106, "订单状态更新失败"),
     ORDER_DETAIL_EMPTY(107, "订单详情为空"),
     ORDER_PAY_STATUS_ERROR(108, "订单支付状态不正确"),
-    ORDER_PAY_STATUS_UPDATE_FAIL(109, "订单支付状态更新失败");
+    ORDER_PAY_STATUS_UPDATE_FAIL(109, "订单支付状态更新失败"),
+    ORDER_OWNER_ERROR(110, "订单不属于当前用户");
 
     private Integer code;
     private String msg;

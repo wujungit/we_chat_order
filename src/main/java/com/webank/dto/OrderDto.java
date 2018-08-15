@@ -1,5 +1,6 @@
 package com.webank.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.webank.entity.OrderDetail;
 import com.webank.enums.OrderStatusEnum;
 import com.webank.enums.PayStatusEnum;

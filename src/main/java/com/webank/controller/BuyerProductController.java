@@ -26,6 +26,7 @@ public class BuyerProductController {
     @Autowired
     private ProductCategoryService productCategoryService;
 
+    // 商品列表
     @RequestMapping("/list")
     public ResultVo list() {
         // 查询所有上架商品
