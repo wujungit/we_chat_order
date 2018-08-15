@@ -8,6 +8,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
@@ -47,22 +49,47 @@ public class OrderServiceTest {
 
     @Test
     public void getOne() {
+        String orderId = "1534244686974439812";
+        OrderDto result = orderService.getOne(orderId);
+        log.info("result:{}", result.toString());
+        Assert.assertNotNull(result);
     }
 
     @Test
     public void findList() {
+        String buyerOpenid = "1101110";
+        PageRequest pageRequest = PageRequest.of(0, 2);
+        Page<OrderDto> result = orderService.findList(buyerOpenid, pageRequest);
+        log.info("result:{}", result.getContent());
+        log.info("total:{}", result.getTotalElements());
+        Assert.assertNotNull(result);
     }
 
     @Test
     public void cancel() {
+        String orderId = "1534244686974439812";
+        OrderDto orderDto = orderService.getOne(orderId);
+        OrderDto result = orderService.cancel(orderDto);
+        log.info("result:{}", result.toString());
+        Assert.assertNotNull(result);
     }
 
     @Test
     public void finish() {
+        String orderId = "1534244686974439812";
+        OrderDto orderDto = orderService.getOne(orderId);
+        OrderDto result = orderService.finish(orderDto);
+        log.info("result:{}", result.toString());
+        Assert.assertNotNull(result);
     }
 
     @Test
     public void paid() {
+        String orderId = "1534244686974439812";
+        OrderDto orderDto = orderService.getOne(orderId);
+        OrderDto result = orderService.paid(orderDto);
+        log.info("result:{}", result.toString());
+        Assert.assertNotNull(result);
     }
 
     @Test
