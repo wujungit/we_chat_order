@@ -11,3 +11,6 @@ spring:
 server:
   servlet:
     context-path: /we_chat_order
+weChat:
+  mpAppId: wxd898fce287jir742
+  mpAppSecret: wxd898fce287jir742
