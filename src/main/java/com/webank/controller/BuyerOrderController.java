@@ -32,8 +32,12 @@ import java.util.Map;
 @RequestMapping("/buyer/order")
 @Slf4j
 public class BuyerOrderController {
+    private final OrderService orderService;
+
     @Autowired
-    private OrderService orderService;
+    public BuyerOrderController(OrderService orderService) {
+        this.orderService = orderService;
+    }
 
     // 创建订单
     @RequestMapping("/create")
