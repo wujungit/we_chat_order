@@ -22,6 +22,7 @@ public enum ResultEnum {
     ORDER_PAY_STATUS_UPDATE_FAIL(109, "订单支付状态更新失败"),
     ORDER_OWNER_ERROR(110, "订单不属于当前用户"),
     WE_CHAT_MP_ERROR(111, "微信公众号异常"),
+    WE_CHAT_NOTIFY_VERIFY_ERROR(112, "微信支付异步通知金额异常"),
     ;
 
     private Integer code;
