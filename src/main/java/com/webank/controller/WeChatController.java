@@ -21,12 +21,8 @@ import java.net.URLEncoder;
 @RequestMapping("/weChat")
 @Slf4j
 public class WeChatController {
-    private final WxMpService wxMpService;
-
     @Autowired
-    public WeChatController(WxMpService wxMpService) {
-        this.wxMpService = wxMpService;
-    }
+    private WxMpService wxMpService;
 
     @GetMapping("/authorize")
     public String authorize(@RequestParam("returnUrl") String returnUrl) {

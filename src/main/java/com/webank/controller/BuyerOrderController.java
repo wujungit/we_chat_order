@@ -28,16 +28,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 买家端订单
+ */
 @RestController
 @RequestMapping("/buyer/order")
 @Slf4j
 public class BuyerOrderController {
-    private final OrderService orderService;
-
     @Autowired
-    public BuyerOrderController(OrderService orderService) {
-        this.orderService = orderService;
-    }
+    private OrderService orderService;
 
     // 创建订单
     @RequestMapping("/create")

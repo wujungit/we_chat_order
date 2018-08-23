@@ -15,12 +15,8 @@ import java.util.List;
 @Service
 @Slf4j
 public class ProductCategoryServiceImpl implements ProductCategoryService {
-    private final ProductCategoryRepository repository;
-
     @Autowired
-    public ProductCategoryServiceImpl(ProductCategoryRepository repository) {
-        this.repository = repository;
-    }
+    private ProductCategoryRepository repository;
 
     @Override
     public ProductCategory getOne(Integer categoryId) {

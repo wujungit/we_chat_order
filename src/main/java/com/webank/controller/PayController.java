@@ -17,6 +17,10 @@ import java.util.Map;
 
 /**
  * 支付
+ * 支付流程
+ * 1、授权，通过appID和appsecret获取openId
+ * 2、支付，需要传openId参数
+ * 3、授权+支付
  */
 @Controller
 @Slf4j
@@ -55,7 +59,7 @@ public class PayController {
      */
     @PostMapping("notify")
     public ModelAndView notify(@RequestBody String notifyData) {
-//        PayResponse payResponse = payService.notify(notifyData);
+        PayResponse payResponse = payService.notify(notifyData);
         // 返回给微信处理结果
         return new ModelAndView("pay/success");
     }

@@ -12,6 +12,7 @@ import com.webank.exception.WeChatOrderException;
 import com.webank.repository.OrderDetailRepository;
 import com.webank.repository.OrderMasterRepository;
 import com.webank.service.OrderService;
+import com.webank.service.PayService;
 import com.webank.service.ProductInfoService;
 import com.webank.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -32,16 +33,14 @@ import java.util.stream.Collectors;
 @Service
 @Slf4j
 public class OrderServiceImpl implements OrderService {
-    private final ProductInfoService productInfoService;
-    private final OrderDetailRepository orderDetailRepository;
-    private final OrderMasterRepository orderMasterRepository;
-
     @Autowired
-    public OrderServiceImpl(ProductInfoService productInfoService, OrderDetailRepository orderDetailRepository, OrderMasterRepository orderMasterRepository) {
-        this.productInfoService = productInfoService;
-        this.orderDetailRepository = orderDetailRepository;
-        this.orderMasterRepository = orderMasterRepository;
-    }
+    private ProductInfoService productInfoService;
+    @Autowired
+    private OrderDetailRepository orderDetailRepository;
+    @Autowired
+    private OrderMasterRepository orderMasterRepository;
+    @Autowired
+    private PayService payService;
 
     @Override
     @Transactional
@@ -144,7 +143,7 @@ public class OrderServiceImpl implements OrderService {
         // 如果已支付，需要退款
         Integer payStatus = orderDto.getPayStatus();
         if (PayStatusEnum.PAID.getCode().equals(payStatus)) {
-            // TODO
+            payService.refund(orderDto);
         }
         return orderDto;
     }
@@ -201,6 +200,14 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Page<OrderDto> findList(Pageable pageable) {
-        return null;
+        Page<OrderMaster> orderMasterPage = orderMasterRepository.findAll(pageable);
+        List<OrderMaster> orderMasterList = orderMasterPage.getContent();
+        List<OrderDto> orderDtoList = new ArrayList<>();
+        for (OrderMaster orderMaster : orderMasterList) {
+            OrderDto orderDto = new OrderDto();
+            BeanUtils.copyProperties(orderMaster, orderDto);
+            orderDtoList.add(orderDto);
+        }
+        return new PageImpl<>(orderDtoList, pageable, orderMasterPage.getTotalElements());
     }
 }

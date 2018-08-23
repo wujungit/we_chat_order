@@ -21,14 +21,10 @@ import java.util.List;
 @RequestMapping("/buyer/product")
 @Slf4j
 public class BuyerProductController {
-    private final ProductInfoService productInfoService;
-    private final ProductCategoryService productCategoryService;
-
     @Autowired
-    public BuyerProductController(ProductInfoService productInfoService, ProductCategoryService productCategoryService) {
-        this.productInfoService = productInfoService;
-        this.productCategoryService = productCategoryService;
-    }
+    private ProductInfoService productInfoService;
+    @Autowired
+    private ProductCategoryService productCategoryService;
 
     // 商品列表
     @RequestMapping("/list")

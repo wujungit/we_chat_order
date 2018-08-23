@@ -3,6 +3,8 @@ package com.webank.service.impl;
 import com.lly835.bestpay.enums.BestPayTypeEnum;
 import com.lly835.bestpay.model.PayRequest;
 import com.lly835.bestpay.model.PayResponse;
+import com.lly835.bestpay.model.RefundRequest;
+import com.lly835.bestpay.model.RefundResponse;
 import com.lly835.bestpay.service.BestPayService;
 import com.webank.dto.OrderDto;
 import com.webank.enums.ResultEnum;
@@ -22,14 +24,10 @@ import java.math.BigDecimal;
 public class PayServiceImpl implements PayService {
     private static final String ORDER_NAME = "微信点餐订单";
 
-    private final BestPayService bestPayService;
-    private final OrderService orderService;
-
     @Autowired
-    public PayServiceImpl(BestPayService bestPayService, OrderService orderService) {
-        this.bestPayService = bestPayService;
-        this.orderService = orderService;
-    }
+    private BestPayService bestPayService;
+    @Autowired
+    private OrderService orderService;
 
     @Override
     public PayResponse create(OrderDto orderDto) {
@@ -77,5 +75,17 @@ public class PayServiceImpl implements PayService {
         // 修改订单的支付状态
         orderService.paid(orderDto);
         return payResponse;
+    }
+
+    @Override
+    public RefundResponse refund(OrderDto orderDto) {
+        RefundRequest refundRequest = new RefundRequest();
+        refundRequest.setOrderId(orderDto.getOrderId());
+        refundRequest.setOrderAmount(orderDto.getOrderAmount().doubleValue());
+        refundRequest.setPayTypeEnum(BestPayTypeEnum.WXPAY_H5);
+        log.info("【微信退款】refundRequest={}", JsonUtil.toJson(refundRequest));
+        RefundResponse refundResponse = bestPayService.refund(refundRequest);
+        log.info("【微信退款】refundResponse={}", JsonUtil.toJson(refundResponse));
+        return refundResponse;
     }
 }
