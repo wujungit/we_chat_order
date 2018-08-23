@@ -23,6 +23,7 @@ public enum ResultEnum {
     ORDER_OWNER_ERROR(110, "订单不属于当前用户"),
     WE_CHAT_MP_ERROR(111, "微信公众号异常"),
     WE_CHAT_NOTIFY_VERIFY_ERROR(112, "微信支付异步通知金额异常"),
+    ORDER_CANCEL_SUCCESS(113, "订单取消成功"),
     ;
 
     private Integer code;

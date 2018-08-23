@@ -1,9 +1,11 @@
 package com.webank.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.webank.entity.OrderDetail;
 import com.webank.enums.OrderStatusEnum;
 import com.webank.enums.PayStatusEnum;
+import com.webank.utils.EnumUtil;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -26,4 +28,14 @@ public class OrderDto {
     private Date createTime;//创建时间
     private Date updateTime;//修改时间
     private List<OrderDetail> orderDetailList;//订单详情列表
+
+    @JsonIgnore
+    public OrderStatusEnum getOrderStatusEnum() {
+        return EnumUtil.getByCode(orderStatus, OrderStatusEnum.class);
+    }
+
+    @JsonIgnore
+    public PayStatusEnum getPayStatusEnum() {
+        return EnumUtil.getByCode(payStatus, PayStatusEnum.class);
+    }
 }
