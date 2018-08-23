@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 买家端商品
+ */
 @RestController
 @RequestMapping("/buyer/product")
 @Slf4j

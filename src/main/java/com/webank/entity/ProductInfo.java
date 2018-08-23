@@ -1,5 +1,7 @@
 package com.webank.entity;
 
+import com.webank.enums.ProductStatusEnum;
+import com.webank.utils.EnumUtil;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -26,4 +28,8 @@ public class ProductInfo {
     private Integer categoryType;//类目编号
     private Date createTime;//创建时间
     private Date updateTime;//修改时间
+
+    public ProductStatusEnum getProductStatusEnum() {
+        return EnumUtil.getByCode(productStatus, ProductStatusEnum.class);
+    }
 }
