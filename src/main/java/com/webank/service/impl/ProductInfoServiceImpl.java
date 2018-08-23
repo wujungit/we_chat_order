@@ -83,11 +83,22 @@ public class ProductInfoServiceImpl implements ProductInfoService {
 
     @Override
     public ProductInfo onSale(String productId) {
-        return null;
+        ProductInfo productInfo = repository.getOne(productId);
+        if (productInfo.getProductStatusEnum() == ProductStatusEnum.UP) {
+            throw new WeChatOrderException(ResultEnum.PRODUCT_STATUS_ERROR);
+        }
+        // 更新商品状态:0-正常,1-下架
+        productInfo.setProductStatus(ProductStatusEnum.UP.getCode());
+        return repository.save(productInfo);
     }
 
     @Override
     public ProductInfo offSale(String productId) {
-        return null;
+        ProductInfo productInfo = repository.getOne(productId);
+        if (productInfo.getProductStatusEnum() == ProductStatusEnum.DOWN) {
+            throw new WeChatOrderException(ResultEnum.PRODUCT_STATUS_ERROR);
+        }
+        productInfo.setProductStatus(ProductStatusEnum.DOWN.getCode());
+        return repository.save(productInfo);
     }
 }

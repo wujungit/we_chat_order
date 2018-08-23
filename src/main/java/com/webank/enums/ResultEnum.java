@@ -25,6 +25,9 @@ public enum ResultEnum {
     WE_CHAT_NOTIFY_VERIFY_ERROR(112, "微信支付异步通知金额异常"),
     ORDER_CANCEL_SUCCESS(113, "订单取消成功"),
     ORDER_FINISH_SUCCESS(114, "订单完结成功"),
+    PRODUCT_STATUS_ERROR(115, "商品状态不正确"),
+    PRODUCT_ON_SALE_SUCCESS(117, "商品上架成功"),
+    PRODUCT_OFF_SALE_SUCCESS(118, "商品下架成功"),
     ;
 
     private Integer code;

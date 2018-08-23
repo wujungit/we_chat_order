@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="col-md-12 column">
-                    <form role="form" method="post" action="/sell/seller/product/save">
+                    <form role="form" method="post" action="/we_chat_order/seller/product/save">
                         <div class="form-group">
                             <label>名称</label>
                             <input name="productName" type="text" class="form-control"
@@ -27,12 +27,12 @@
                         </div>
                         <div class="form-group">
                             <label>描述</label>
-                            <input name="productDescription" type="text" class="form-control"
-                                   value="${(productInfo.productDescription)!''}"/>
+                            <input name="productDesc" type="text" class="form-control"
+                                   value="${(productInfo.productDesc)!''}"/>
                         </div>
                         <div class="form-group">
                             <label>图片</label>
-                            <img height="100" width="100" src="${(productInfo.productIcon)!''}" alt="">
+                            <img height="50" width="50" src="${(productInfo.productIcon)!''}" alt="">
                             <input name="productIcon" type="text" class="form-control"
                                    value="${(productInfo.productIcon)!''}"/>
                         </div>

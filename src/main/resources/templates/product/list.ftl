@@ -40,9 +40,9 @@
                             </td>
                             <td>
                                 <#if productInfo.getProductStatusEnum().getMsg() == "在架">
-                                    <a href="/we_chat_order/seller/product/off_sale?productId=${productInfo.productId}">下架</a>
+                                    <a href="/we_chat_order/seller/product/offSale?productId=${productInfo.productId}">下架</a>
                                 <#else>
-                                    <a href="/we_chat_order/seller/product/on_sale?productId=${productInfo.productId}">上架</a>
+                                    <a href="/we_chat_order/seller/product/onSale?productId=${productInfo.productId}">上架</a>
                                 </#if>
                             </td>
                         </tr>
