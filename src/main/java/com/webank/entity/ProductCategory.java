@@ -1,5 +1,6 @@
 package com.webank.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -23,6 +24,9 @@ public class ProductCategory {
     private Integer categoryType;//类目编号
     private Date createTime;//创建时间
     private Date updateTime;//修改时间
+
+    public ProductCategory() {
+    }
 
     public ProductCategory(String categoryName, Integer categoryType) {
         this.categoryName = categoryName;

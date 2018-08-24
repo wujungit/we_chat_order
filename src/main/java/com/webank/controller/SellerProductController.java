@@ -93,6 +93,11 @@ public class SellerProductController {
         return new ModelAndView("common/success", map);
     }
 
+    /**
+     * 展示
+     * @param productId
+     * @return
+     */
     @GetMapping("/index")
     public ModelAndView index(@RequestParam(value = "productId", required = false) String productId) {
         Map<String, Object> map = new HashMap<>();

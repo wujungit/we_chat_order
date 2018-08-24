@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="col-md-12 column">
-                    <form role="form" method="post" action="/sell/seller/category/save">
+                    <form role="form" method="post" action="/we_chat_order/seller/category/save">
                         <div class="form-group">
                             <label>名字</label>
                             <input name="categoryName" type="text" class="form-control"
