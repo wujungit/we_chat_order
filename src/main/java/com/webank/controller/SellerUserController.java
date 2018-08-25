@@ -64,7 +64,8 @@ public class SellerUserController {
         // 设置token到cookie
         CookieUtil.set(response, CookieConstant.TOKEN, token, expire);
         // 跳转时，一定用完整的http地址
-        return new ModelAndView("redirect:" + projectUrlConfig.getWeChatOrder() + "/we_chat_order/seller/order/list");
+        String weChatOrder = projectUrlConfig.getWeChatOrder();
+        return new ModelAndView("redirect:" + weChatOrder + "/we_chat_order/seller/order/list");
     }
 
     /**

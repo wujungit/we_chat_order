@@ -24,7 +24,7 @@ wechat:
   mchKey: wxd898fce287jir742
   keyPath: wxd898fce287jir742
   notifyUrl: wxd898fce287jir742
-projectUrl:
+projecturl:
   weChatOrder: http://localhost:8080
   weChatMpAuthorize: wxd898fce287jir742
   weChatOpenAuthorize: wxd898fce287jir742

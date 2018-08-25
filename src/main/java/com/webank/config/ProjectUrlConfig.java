@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-@ConfigurationProperties(prefix = "projectUrl")
+@ConfigurationProperties(prefix = "projecturl")
 public class ProjectUrlConfig {
-    public String weChatOrder;//项目url
+    public String weChatOrder;//项目urlu
     public String weChatMpAuthorize;//微信公众平台授权url
     public String weChatOpenAuthorize;//微信开放平台授权url
 }
