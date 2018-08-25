@@ -28,6 +28,8 @@ public enum ResultEnum {
     PRODUCT_STATUS_ERROR(115, "商品状态不正确"),
     PRODUCT_ON_SALE_SUCCESS(117, "商品上架成功"),
     PRODUCT_OFF_SALE_SUCCESS(118, "商品下架成功"),
+    LOGIN_ERROR(119, "登陆失败，登陆信息不正确"),
+    LOGOUT_SUCCESS(120, "登出成功"),
     ;
 
     private Integer code;

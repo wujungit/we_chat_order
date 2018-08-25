@@ -8,13 +8,23 @@ spring:
     show-sql: true
   jackson:
     default-property-inclusion: non_null
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
 server:
   servlet:
     context-path: /we_chat_order
 wechat:
   mpAppId: wxd898fce287jir742
   mpAppSecret: wxd898fce287jir742
+  openAppId: wxd898fce287jir742
+  openAppSecret: wxd898fce287jir742
   mchId: wxd898fce287jir742
   mchKey: wxd898fce287jir742
   keyPath: wxd898fce287jir742
   notifyUrl: wxd898fce287jir742
+projectUrl:
+  weChatOrder: http://localhost:8080
+  weChatMpAuthorize: wxd898fce287jir742
+  weChatOpenAuthorize: wxd898fce287jir742
