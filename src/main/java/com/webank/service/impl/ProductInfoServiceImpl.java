@@ -9,6 +9,8 @@ import com.webank.repository.ProductInfoRepository;
 import com.webank.service.ProductInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -21,11 +23,13 @@ import java.util.List;
  */
 @Service
 @Slf4j
+@CacheConfig(cacheNames = "product")
 public class ProductInfoServiceImpl implements ProductInfoService {
     @Autowired
     private ProductInfoRepository repository;
 
     @Override
+//    @Cacheable(key = "123")
     public ProductInfo getOne(String productId) {
         return repository.findById(productId).orElse(null);
     }
@@ -42,6 +46,7 @@ public class ProductInfoServiceImpl implements ProductInfoService {
     }
 
     @Override
+//    @Cacheable(key = "123")
     public ProductInfo save(ProductInfo productInfo) {
         return repository.save(productInfo);
     }

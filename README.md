@@ -7,3 +7,8 @@
 广义的session
 理解为一种保存key-value的机制
 回话有两种常规的方式，sessionId/token
+3、synchronized
+是一种解决方法，无法做到细粒度控制，只适合单点的情况
+redis分布式锁
+4、redis缓存
+命中/失效/更新

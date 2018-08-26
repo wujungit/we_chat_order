@@ -11,7 +11,9 @@ import com.webank.vo.ResultVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -31,7 +33,8 @@ public class BuyerProductController {
 
     // 商品列表
     @RequestMapping("/list")
-    public ResultVo list() {
+    @Cacheable(cacheNames = "product", key = "#userId", condition = "#userId.length()>3", unless = "#result.code!=0")
+    public ResultVo list(@RequestParam("userId") String userId) {
         // 查询所有上架商品
         List<ProductInfo> productInfoList = productInfoService.findUpAll();
         // 查询类目（一次性查询）
