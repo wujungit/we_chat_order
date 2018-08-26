@@ -27,7 +27,7 @@
             </ul>
         </li>
         <li>
-            <a href="/we_chat_order/seller/logout"><i class="fa fa-fw fa-list-alt"></i> 登出</a>
+            <a href="/we_chat_order/seller/user/logout"><i class="fa fa-fw fa-list-alt"></i> 登出</a>
         </li>
     </ul>
 </nav>

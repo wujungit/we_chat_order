@@ -25,8 +25,7 @@ public class SellerAuthorizeAspect {
     @Autowired
     private StringRedisTemplate redisTemplate;
 
-    @Pointcut("execution(public * com.webank.controller.Seller*.*(..))" +
-            "&&!execution(public * com.webank.controller.SellerUserController.*(..))")
+    @Pointcut("execution(public * com.webank.controller.Seller*.*(..))&&!execution(public * com.webank.controller.SellerUserController.*(..))")
     public void verify() {
 
     }
