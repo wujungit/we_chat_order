@@ -8,6 +8,7 @@ import com.webank.entity.ProductInfo;
 import com.webank.enums.OrderStatusEnum;
 import com.webank.enums.PayStatusEnum;
 import com.webank.enums.ResultEnum;
+import com.webank.exception.ResponseBankException;
 import com.webank.exception.WeChatOrderException;
 import com.webank.repository.OrderDetailRepository;
 import com.webank.repository.OrderMasterRepository;
@@ -56,6 +57,7 @@ public class OrderServiceImpl implements OrderService {
             ProductInfo productInfo = productInfoService.getOne(productId);
             if (null == productInfo) {
                 throw new WeChatOrderException(ResultEnum.PRODUCT_NOT_EXIST);
+//                throw new ResponseBankException();
             }
             // 计算订单总金额
             BigDecimal productPrice = productInfo.getProductPrice();
