@@ -13,6 +13,17 @@ import org.springframework.util.StringUtils;
 @Component
 @Slf4j
 public class RedisLock {
+    /**
+     * 使用redis优点
+     * 1、速度快，因为数据存在内存中，查找和操作简单
+     * 2、支持丰富的数据类型，五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)
+     * 3、支持事务，操作都是原子性的，对数据的更改，要么全部执行，要么全部不执行
+     * 4、丰富的特性：可用于缓存，消息，按key设置过期时间，过期后将会自动删除
+     * redis相比memcached有哪些优势？
+     * 1、memcached所有的值均是简单的字符串，redis作为其替代者，支持更为丰富的数据类型
+     * 2、redis的速度比memcached快很多
+     * 3、redis可以持久化其数据
+     */
     @Autowired
     private StringRedisTemplate redisTemplate;
 
